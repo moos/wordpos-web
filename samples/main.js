@@ -18,7 +18,7 @@ wordpos.getAdverbs('this is lately a likely tricky business this is')
   .then(res => {
     let expect = {lately: 1, likely: 1};
     console.log('getAdverbs:', res);
-    console.assert(res[0] in expect);  // NOTE: order is NOT gauranteed!
+    console.assert(res[0] in expect);  /* NOTE: order is NOT gauranteed! */
     console.assert(res[1] in expect);
   });
 
@@ -27,7 +27,7 @@ wordpos.lookupAdverb('likely')
     console.log('lookupAdverb:', res[0]);
     assertLikely(res[0]);
   });
-// wordpos.lookup('likely').then(res, console.log('lookup:', res))
+/* wordpos.lookup('likely').then(res => console.log('lookup:', res)); */
 
 wordpos.seek('00139421', 'r')
   .then(res => {

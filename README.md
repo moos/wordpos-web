@@ -1,8 +1,11 @@
 wordpos-web
 =======
 
-[![NPM version](https://img.shields.io/npm/v/wordpos-web.svg)](https://www.npmjs.com/package/wordpos-web)
 [![Build Status](https://img.shields.io/travis/moos/wordpos-web/master.svg)](https://travis-ci.org/moos/wordpos-web)
+[![NPM version](https://img.shields.io/npm/v/wordpos-web.svg)](https://www.npmjs.com/package/wordpos-web)
+
+**CDNs:** [![](https://data.jsdelivr.com/v1/package/npm/wordpos-web/badge)](https://www.jsdelivr.com/package/npm/wordpos-web)
+
 
 [wordpos](moos/wordpos) is a set of *fast* part-of-speech (POS) utilities for Node.js **and** browser using fast lookup in the WordNet database.
 
@@ -14,7 +17,7 @@ wordpos-web
      npm install wordpos-web
 
 
-## wordpos Docs
+## wordpos API Docs
 See [wordpos/README](https://github.com/moos/wordpos).
 
 ## Running inside the browsers
@@ -39,7 +42,44 @@ The dict files can be served locally or from CDN (see [samples/cdn](samples/cdn/
 ```
 Above assumes wordpos is installed to the directory `./wordpos`.  `./wordpos/dict` holds the index and data WordNet files generated for the web in a postinstall script.
 
-See [samples/self-hosted](samples/self-hosted/).  To run samples, `npm i -g http-server`, then:
+See [samples/self-hosted](samples/self-hosted/).  
+
+## A note on file sizes
+The original WordNet DB is around 35 MB.  The size of the "index" and "data" files formatted for the web are as follows (before any compression):
+
+
+| POS | data | index |
+| --- | --- | --- |
+| adverbs | 525 KB | 170 KB |
+| verbs | 2.7 MB | 534 KB |
+| adjectives | 3.1 MB | 851 KB |
+| nouns | 15 MB🚩 | 4.8 MB |
+| All (raw) | 21.3 MB | 6.4 MB |
+| All (gzip) | ~6 MB | 1.7 MB |
+
+
+🚩 Be aware this is a very large file and may take some time to fetch.
+
+Resources fetched over CDN will be compressed.  For example, the compressed noun files compressed are 4.1 MB (data) and 1.3 MB (index).  If you are self-hosting, ensure gzip compression is on for your server.
+
+Some wordpos API need just the "index" file, while others need both.  Here's the breakdown:
+
+| API | data | index |
+| --- | --- | --- |
+| `get?()` | ✖️ | ✔️ |
+| `is?()` | ✖️ | ✔️ |
+| `lookup?()` | ✔️ | ✔️ |
+| `seek()` | ✔️ | ✔️ |
+| `rand?()` | ✖️ | ✔️ |
+
+The following API will access **all POS** files:
+- `getPOS()` -- all index files
+- `lookup()` -- all index files & data files for matched word
+- `rand()` -- all index files
+
+
+## Dev
+To run samples, `npm i -g http-server`, then:
 
 ```bash
 $ npm run build

@@ -7,16 +7,17 @@ Copyright (c) 2012-2020 mooster@42at.com
 <html>
 <head>
   <meta http-equiv="Content-Security-Policy" content="script-src https: http: 'unsafe-inline' 'unsafe-eval'">
-  <title>Wordpos in the browser</title>
+  <link rel="shortcut icon" href="#" />
+  <title>Wordpos in the browser -- self-hosted</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/github.min.css">
   <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 
-  <script src="../../dist/wordpos.min.js"></script>
-  <script>
+  <script class="self" src="../../dist/wordpos.min.js"></script>
+  <script class="init">
     let wordpos = window.wordpos = new WordPOS({
       // preload: true,
-      dictPath: '/samples/self-hosted/dict',
+      dictPath: '../../dict',
       profile: true,
       // stopwords: false
     });
@@ -25,7 +26,7 @@ Copyright (c) 2012-2020 mooster@42at.com
   <script src="../main.js" name="main"></script>
   <style>
     pre {
-      padding: 2em;
+      padding: 0 2em;
       display: block;
     }
   </style>
@@ -35,20 +36,34 @@ Copyright (c) 2012-2020 mooster@42at.com
  <h1>Self-hosted WordPOS browser sample</h1>
   Open console to see results.
 
- <pre><code> </code></pre>
+  <h4>Load</h4>
+  <pre><code class="self lang-html"> </code></pre>
+  <script>
+    document.querySelector('code.self').textContent =
+      document.querySelector('script.self').outerHTML;
+  </script>
 
+  <h4>Initialize</h4>
+  <pre><code class="init lang-javascript"> </code></pre>
+  <script>
+    document.querySelector('code.init').innerHTML =
+      document.querySelector('script.init').innerHTML;
+  </script>
+
+  <h4>Execute</h4>
+  <pre><code class="main lang-javascript"> </code></pre>
    <script>
-   var el = document.querySelector('code');
-   if (fetch) {
-     fetch('../main.js')
-       .then(res => res.text())
-       .then(txt => {
+     var el = document.querySelector('code.main');
+     if (fetch) {
+       fetch('../main.js')
+        .then(res => res.text())
+        .then(txt => {
          el.innerText = txt;
-         window.hljs && hljs.initHighlightingOnLoad();
+         document.querySelectorAll('pre code').forEach(hljs.highlightBlock);
        });
-   } else {
-     el.innerHTML = 'Open <a href="../main.js">main.js</a>.';
-   }
+     } else {
+      el.innerHTML = 'Open <a href="../main.js">main.js</a>.';
+     }
    </script>
 
    <p style="white-space: pre; color: gray; font-size: small; margin-top: 5vh">
