@@ -53,12 +53,12 @@ The original WordNet DB is around 35 MB.  The size of the "index" and "data" fil
 | adverbs | 525 KB | 170 KB |
 | verbs | 2.7 MB | 534 KB |
 | adjectives | 3.1 MB | 851 KB |
-| nouns | 15 MB🚩 | 4.8 MB |
+| nouns | 15 MB<sup>🚩</sup> | 4.8 MB |
 | All (raw) | 21.3 MB | 6.4 MB |
 | All (gzip) | ~6 MB | 1.7 MB |
 
 
-🚩 Be aware this is a very large file and may take some time to fetch.
+<sup>🚩</sup> Be aware this is a very large file and may take some time to fetch.
 
 Resources fetched over CDN will be compressed.  For example, the compressed noun files compressed are 4.1 MB (data) and 1.3 MB (index).  If you are self-hosting, ensure gzip compression is on for your server.
 
