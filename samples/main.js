@@ -12,6 +12,7 @@ let assertLikely = (r) => {
 
 console.group('Likely');
 wordpos.isAdverb('likely').then(res => console.assert(res));
+
 wordpos.isAdverb('likely', (res, ...profile) => console.log('callback with profile', res, profile));
 
 wordpos.getAdverbs('this is lately a likely tricky business this is')

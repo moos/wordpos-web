@@ -44,6 +44,24 @@ Above assumes wordpos is installed to the directory `./wordpos`.  `./wordpos/dic
 
 See [samples/self-hosted](samples/self-hosted/).  
 
+### Using `preload` option
+When running inside the browse, you can request that the necessary index & data files be preloaded, rather than loaded on demand.
+
+Use this when you're **sure the files will be used** and want to minimize the on-demand wait time.
+
+```js
+let wordpos = new WordPOS({
+  preload: 'a',       // Preload adjectives index file.
+  includeData: true,  // Also preload the adjectives data file.
+  dictPath: '/wordpos/dict'
+});
+
+wordpos.ready().then(()=> {
+  // files are loaded
+});
+```
+See [wordpos#options](https://github.com/moos/wordpos#options) for other `preload` options.
+
 ## A note on file sizes
 The original WordNet DB is around 35 MB.  The size of the "index" and "data" files formatted for the web are as follows (before any compression):
 
