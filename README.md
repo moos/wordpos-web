@@ -15,11 +15,11 @@ wordpos-web
 
 
 ## wordpos Docs
-See [wordpos/README](moos/wordpos).
+See [wordpos/README](https://github.com/moos/wordpos).
 
 ## Running inside the browsers
 
-v2.0 of [wordpos](moos/wordpos) introduces the capability of running in the browser.  The dictionary files are optimized for fast access (lookup by lemma), but they must be fetched, parsed and loaded into browser memory.  The files are loaded on-demand (unless the option `preload: true` is given).
+v2.0 of [wordpos](https://github.com/moos/wordpos) introduces the capability of running in the browser.  The dictionary files are optimized for fast access (lookup by lemma), but they must be fetched, parsed and loaded into browser memory.  The files are loaded on-demand (unless the option `preload: true` is given).
 
 The dict files can be served locally or from CDN (see [samples/cdn](samples/cdn/) for code, or [see it in action](https://moos.github.io/wordpos/cdn)).  Include the following scripts in your `index.html`:
 ```html
