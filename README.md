@@ -1,7 +1,6 @@
 wordpos-web
 =======
 
-[![Build Status](https://img.shields.io/travis/moos/wordpos-web/master.svg)](https://travis-ci.org/moos/wordpos-web)
 [![NPM version](https://img.shields.io/npm/v/wordpos-web.svg)](https://www.npmjs.com/package/wordpos-web)
 
 **CDNs:** [![](https://data.jsdelivr.com/v1/package/npm/wordpos-web/badge)](https://www.jsdelivr.com/package/npm/wordpos-web)
