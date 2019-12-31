@@ -1,0 +1,33 @@
+{
+  "name": "wordpos-web",
+  "version": "0.9.0",
+  "description": "wordpos for the web/browser",
+  "author": "Moos <mooster@42at.com>",
+  "keywords": [
+    "wordpos"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/moos/wordpos-web.git"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "files": [
+    "dict",
+    "dist",
+    "samples"
+  ],
+  "scripts": {
+    "build": "node node_modules/wordpos/tools/makeJsonDict.js index data --no-test",
+    "postbuild": "cp -r node_modules/wordpos/dist .",
+    "prestart": "echo \n\n\nDon't forget to npm run build\n\n",
+    "start": "http-server -a localhost -o samples",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "wordpos": "..\\wordpos\\wordpos-2.0.0-beta.9.tgz"
+  },
+  "devDependencies": {},
+  "license": "ISC"
+}
