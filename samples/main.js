@@ -40,4 +40,4 @@ wordpos.randAdverb({count: 3})
     console.log('rand:', res);
   });
 
-setTimeout(() => console.groupEnd('Likely'), 1000);
+setTimeout(() => console.groupEnd('Likely'), 1500);

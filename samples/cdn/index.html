@@ -6,7 +6,7 @@ Copyright (c) 2012-2020 mooster@42at.com
 -->
 <html>
 <head>
-  <meta http-equiv="Content-Security-Policy" content="script-src https: http: 'unsafe-inline' 'unsafe-eval'">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' https: http: 'unsafe-inline' 'unsafe-eval'">
   <link rel="shortcut icon" href="#" />
   <title>Wordpos in the browser -- CDN</title>
 
@@ -14,12 +14,14 @@ Copyright (c) 2012-2020 mooster@42at.com
   <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 
   <!-- cdn source -->
-  <script class="cdn" src="https://unpkg.com/wordpos@2.0.0-beta/dist/wordpos.min.js"></script>
+  <!-- <script class="cdn" src="https://unpkg.com/browse/wordpos-web@0.9.0/dist/wordpos.min.js"></script> -->
+  <script class="cdn" src="https://cdn.jsdelivr.net/npm/wordpos-web@0.9.0/dist/wordpos.min.js"></script>
 
   <script class="init">
     let wordpos = window.wordpos = new WordPOS({
       // preload: true,
-      dictPath: 'https://unpkg.com/wordpos@2.0.0-beta/dict',
+      // dictPath: 'https://unpkg.com/browse/wordpos-web@0.9.0/dict',
+      dictPath: 'https://cdn.jsdelivr.net/npm/wordpos-web@0.9.0/dict',
       profile: true,
       // stopwords: false
     });
@@ -62,6 +64,9 @@ Copyright (c) 2012-2020 mooster@42at.com
        .then(txt => {
         el.innerText = txt;
         document.querySelectorAll('pre code').forEach(hljs.highlightBlock);
+      })
+      .catch(() => {
+        el.innerHTML = 'Open <a href="../main.js">main.js</a>.';
       });
     } else {
      el.innerHTML = 'Open <a href="../main.js">main.js</a>.';
