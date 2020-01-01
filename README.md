@@ -111,6 +111,7 @@ and open your browser to that url.
 
 
 ## Changes
+- 1.0.1 - Fix self-hosted sample dict/ path
 - 1.0.0 - Initial web version
 
 
