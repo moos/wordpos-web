@@ -10,7 +10,7 @@ wordpos-web
 
 **wordpos-web** formats the WordNet DB files to allow running *wordpos* in the browser.
 
-📣 [Demo](https://moos.github.io/wordpos-web/samples)
+📣 [Demo](https://moos.github.io/wordpos-web/docs/samples)
 
 
 ## Installation

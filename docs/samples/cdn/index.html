@@ -1,0 +1,84 @@
+<!doctype html>
+<!--
+https://github.com/moos/wordpos-web
+Copyright (c) 2012-2020 mooster@42at.com
+(The MIT License)
+-->
+<html>
+<head>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' https: http: 'unsafe-inline' 'unsafe-eval'">
+  <link rel="icon" href="data:," />
+  <title>Wordpos in the browser -- CDN</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/github.min.css">
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+  <!-- cdn source -->
+  <!-- <script class="cdn" src="https://unpkg.com/browse/wordpos-web@1.0.0/dist/wordpos.min.js"></script> -->
+  <script class="cdn" src="https://cdn.jsdelivr.net/npm/wordpos-web@1.0.1/dist/wordpos.min.js"></script>
+
+  <script class="init">
+    let wordpos = window.wordpos = new WordPOS({
+      // preload: true,
+      // dictPath: 'https://unpkg.com/browse/wordpos-web@1.0.0/dict',
+      dictPath: 'https://cdn.jsdelivr.net/npm/wordpos-web@1.0.1/dict',
+      profile: true,
+      debug: true,
+      // stopwords: false
+    });
+  </script>
+
+  <script src="../main.js" name="main"></script>
+  <style>
+    pre {
+      padding: 0 2em;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+ <h1>WordPOS CDN browser sample</h1>
+  Open console to see results.
+
+ <h4>Load</h4>
+ <pre><code class="cdn lang-html"> </code></pre>
+ <script>
+   document.querySelector('code.cdn').textContent =
+     document.querySelector('script.cdn').outerHTML;
+ </script>
+
+ <h4>Initialize</h4>
+ <pre><code class="init lang-javascript"> </code></pre>
+ <script>
+   document.querySelector('code.init').innerHTML =
+     document.querySelector('script.init').innerHTML;
+ </script>
+
+ <h4>Execute</h4>
+ <pre><code class="main lang-javascript"> </code></pre>
+   <script>
+    var el = document.querySelector('code.main');
+    if (fetch) {
+      fetch('../main.js')
+       .then(res => res.text())
+       .then(txt => {
+        el.innerText = txt;
+        document.querySelectorAll('pre code').forEach(hljs.highlightBlock);
+      })
+      .catch(() => {
+        el.innerHTML = 'Open <a href="../main.js">main.js</a>.';
+      });
+    } else {
+     el.innerHTML = 'Open <a href="../main.js">main.js</a>.';
+    }
+   </script>
+
+   <div style="white-space: pre; color: gray; font-size: small; position: relative; top: 64vh">
+     <p><small>v1.0.1</small></p>
+     <a href="https://github.com/moos/wordpos-web">https://github.com/moos/wordpos-web</a>
+     Copyright (c) 2012-2020 mooster@42at.com
+     (The MIT License)
+   </div>
+</body>
+</html>
