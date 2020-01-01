@@ -8,7 +8,9 @@ wordpos-web
 
 [wordpos](moos/wordpos) is a set of *fast* part-of-speech (POS) utilities for Node.js **and** browser using fast lookup in the WordNet database.
 
-**wordpos-web** formats the WordNet DB files to allow running wordpos in the browser.
+**wordpos-web** formats the WordNet DB files to allow running *wordpos* in the browser.
+
+📣[Demo](https://moos.github.io/wordpos-web/)
 
 
 ## Installation
@@ -77,7 +79,7 @@ The original WordNet DB is around 35 MB.  The size of the "index" and "data" fil
 
 <sup>🚩</sup> Be aware this is a very large file and may take some time to fetch.
 
-Resources fetched over CDN will be compressed.  For example, the compressed noun files compressed are 4.1 MB (data) and 1.3 MB (index).  If you are self-hosting, ensure gzip compression is on for your server.
+Resources fetched over CDN will be compressed.  For example, the compressed noun files are 4.1 MB (data) and 1.3 MB (index).  If you are self-hosting, ensure gzip compression is on for your server.
 
 Some wordpos API need just the "index" file, while others need both.  Here's the breakdown:
 
