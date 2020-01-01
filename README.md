@@ -6,11 +6,11 @@ wordpos-web
 **CDNs:** [![](https://data.jsdelivr.com/v1/package/npm/wordpos-web/badge)](https://www.jsdelivr.com/package/npm/wordpos-web)
 
 
-[wordpos](moos/wordpos) is a set of *fast* part-of-speech (POS) utilities for Node.js **and** browser using fast lookup in the WordNet database.
+[wordpos](https://github.com/moos/wordpos) is a set of *fast* part-of-speech (POS) utilities for Node.js **and** browser using fast lookup in the WordNet database.
 
 **wordpos-web** formats the WordNet DB files to allow running *wordpos* in the browser.
 
-📣[Demo](https://moos.github.io/wordpos-web/)
+📣 [Demo](https://moos.github.io/wordpos-web/samples)
 
 
 ## Installation
@@ -25,7 +25,7 @@ See [wordpos/README](https://github.com/moos/wordpos).
 
 v2.0 of [wordpos](https://github.com/moos/wordpos) introduces the capability of running in the browser.  The dictionary files are optimized for fast access (lookup by lemma), but they must be fetched, parsed and loaded into browser memory.  The files are loaded on-demand (unless the option `preload: true` is given).
 
-The dict files can be served locally or from CDN (see [samples/cdn](samples/cdn/) for code, or [see it in action](https://moos.github.io/wordpos/cdn)).  Include the following scripts in your `index.html`:
+The dict files can be served locally or from CDN (see [samples/cdn](samples/cdn/)).  Include the following scripts in your `index.html`:
 ```html
 <script src="wordpos/dist/wordpos.min.js"></script>
 <script>
