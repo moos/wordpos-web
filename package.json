@@ -19,13 +19,13 @@
     "samples"
   ],
   "scripts": {
-    "prebuild": "cp -r samples docs/samples && npm run replace-version",
+    "prebuild": "rm -rf docs && cp -r samples docs && npm run replace-version",
     "build": "node node_modules/wordpos/tools/makeJsonDict.js index data --no-test",
     "postbuild": "cp -r node_modules/wordpos/dist .",
     "prestart": "echo \n\n\nDon't forget to npm run build\n\n",
-    "start": "http-server -a localhost -o samples",
+    "start": "http-server -a localhost -o docs",
     "prepare": "npm run build",
-    "replace-version": "sed -i s/@VERSION@/%npm_package_version%/g docs/samples/**/* docs/samples/*.html"
+    "replace-version": "sed -i s/@VERSION@/%npm_package_version%/g docs/**/* docs/*.html"
   },
   "dependencies": {
     "wordpos": "^2.0.0"

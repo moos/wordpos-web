@@ -10,7 +10,7 @@ wordpos-web
 
 **wordpos-web** formats the WordNet DB files to allow running *wordpos* in the browser.
 
-📣 [Demo](https://moos.github.io/wordpos-web/docs/samples)
+📣 [Demo](https://moos.github.io/wordpos-web/docs)
 
 
 ## Installation
@@ -25,7 +25,7 @@ See [wordpos/README](https://github.com/moos/wordpos).
 
 v2.0 of [wordpos](https://github.com/moos/wordpos) introduces the capability of running in the browser.  The dictionary files are optimized for fast access (lookup by lemma), but they must be fetched, parsed and loaded into browser memory.  The files are loaded on-demand (unless the option `preload: true` is given).
 
-The dict files can be served locally or from CDN (see [samples/cdn](samples/cdn/)).  Include the following scripts in your `index.html`:
+The dict files can be served locally or from CDN (see [samples/cdn](docs/cdn/)).  Include the following scripts in your `index.html`:
 ```html
 <script src="wordpos/dist/wordpos.min.js"></script>
 <script>
@@ -43,7 +43,7 @@ The dict files can be served locally or from CDN (see [samples/cdn](samples/cdn/
 ```
 Above assumes wordpos is installed to the directory `./wordpos`.  `./wordpos/dict` holds the index and data WordNet files generated for the web in a postinstall script.
 
-See [samples/self-hosted](samples/self-hosted/).  
+See [samples/self-hosted](docs/self-hosted/).  
 
 ### Using `preload` option
 When running inside the browse, you can request that the necessary index & data files be preloaded, rather than loaded on demand.
